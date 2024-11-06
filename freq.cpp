@@ -21,6 +21,14 @@ class Piece{
         // method for launching the part with an animation
         void lancer(){
             cout<< "Lancement de la piece ..."<< endl;
+
+            // Animation d'alternance rapide entre "P" ou "F"
+            for(int i=0; i<10; i++){
+                // Affichage alternee "P" ou "F"
+                cout << (i%2 == 0 ? "PILE" : "FACE") << "\r";
+                cout.flush();   // forcer l'affichage imediate
+                this_thread::sleep_for(chrono::milliseconds(200));  // pause de 200 ms pour creer l'effet d'animation
+            }
         }
 };
 
