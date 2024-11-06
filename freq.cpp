@@ -27,6 +27,18 @@ class Piece{
 int main(){
     // create a piece object
     Piece piece;
-    piece.lancer();
-    return 0;
+    char choix;
+
+    do{
+        // appel de la methode pour simuler le lancer de la piece
+        piece.lancer();
+
+        // Demander a l'utilisateur s'il souhaite relancer la piece
+        cout<< "Voulez-vous relancer la piece ? (o/n) : ";
+        cin >> choix;   // lire input user 
+    } while(choix == 'o' || choix == 'O');
+    
+    // pour terminer la simulation
+    cout<< "Simulation terminée ..." << endl;
+    return 0;   // INdiquer que le programme s'est terminée avec succes
 }
