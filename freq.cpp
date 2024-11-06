@@ -29,9 +29,33 @@ class Piece{
                 cout.flush();   // forcer l'affichage imediate
                 this_thread::sleep_for(chrono::milliseconds(200));  // pause de 200 ms pour creer l'effet d'animation
             }
+
+            // determiner le resultat final ("P" ou "F")
+            string resultat = (rand() % 2 == 0 ? "PILE" : "FACE");
+            cout << "Resultat Final : "<< resultat << endl; // Afficher le resultat final
+        
+            // Mettre a jour les compteure pour le nomber de "P" et "F"
+            total_Laner++;  // Increment le total des lances
+            (resultat == "PILE") ? count_pile++ : count_face++;
+
+            // afficher le frequency relative apres chaque lancer
+            afficher_frequenceRel();
+        }
+
+        // Mwethoed pour afficher la frequence relative apres chaque lancer
+        void afficher_frequenceRel() const{
+            // calcul de la frequence relative en pourcentage
+            double frequence_relativeF = (static_cast<double>(count_face) /total_Laner) *100;
+            double frequence_relativeP = (static_cast<double>(count_pile) /total_Laner) *100;
+
+            // afficher la frequence relative *
+            cout << "Frequence relative ...." <<endl;
+            cout << "FREQUENCE RELATIVE DE PILE : " << frequence_relativeP<< "%" <<endl;
+            cout << "FREQUENCE RELATIVE DE FACE : " << frequence_relativeF<< "%" <<endl;
+            cout << "--------------------------------------" <<endl;  // separateur pour la lisibilite des resultats
         }
 };
-
+ 
 int main(){
     // create a piece object
     Piece piece;
