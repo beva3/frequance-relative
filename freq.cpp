@@ -23,12 +23,12 @@ class Piece{
             cout<< "Lancement de la piece ..."<< endl;
 
             // Animation d'alternance rapide entre "P" ou "F"
-            for(int i=0; i<10; i++){
-                // Affichage alternee "P" ou "F"
-                cout << (i%2 == 0 ? "PILE" : "FACE") << "\r";
-                cout.flush();   // forcer l'affichage imediate
-                this_thread::sleep_for(chrono::milliseconds(200));  // pause de 200 ms pour creer l'effet d'animation
-            }
+            // for(int i=0; i<10; i++){
+            //     // Affichage alternee "P" ou "F"
+            //     cout << (i%2 == 0 ? "PILE" : "FACE") << "\r";
+            //     cout.flush();   // forcer l'affichage imediate
+            //     this_thread::sleep_for(chrono::milliseconds(200));  // pause de 200 ms pour creer l'effet d'animation
+            // }
 
             // determiner le resultat final ("P" ou "F")
             string resultat = (rand() % 2 == 0 ? "PILE" : "FACE");
@@ -61,14 +61,20 @@ int main(){
     Piece piece;
     char choix;
 
-    do{
-        // appel de la methode pour simuler le lancer de la piece
-        piece.lancer();
+    // do{
+    //     // appel de la methode pour simuler le lancer de la piece
+    //     piece.lancer();
 
-        // Demander a l'utilisateur s'il souhaite relancer la piece
-        cout<< "Voulez-vous relancer la piece ? (o/n) : ";
-        cin >> choix;   // lire input user 
-    } while(choix == 'o' || choix == 'O');
+    //     // Demander a l'utilisateur s'il souhaite relancer la piece
+    //     cout<< "Voulez-vous relancer la piece ? (o/n) : ";
+    //     cin >> choix;   // lire input user 
+    // } while(choix == 'o' || choix == 'O');
+
+    for(int i = 0; i<10000; i++){
+        cout << "when i  = " << i <<endl;
+        // appel de la methode pour simuler le lancer de la piece
+        piece.lancer();  // lancer la piece 100000 fois pour tester la performance
+    }
     
     // pour terminer la simulation
     cout<< "Simulation terminée ..." << endl;
